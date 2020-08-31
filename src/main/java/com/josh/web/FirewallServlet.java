@@ -31,6 +31,14 @@ public class FirewallServlet extends HttpServlet {
             writer.println("</head>");
             writer.println("<body>");
             writer.println("<h2> Firewall Demo </h2>");
+            String divId = "links";
+            writer.println("<div id=" + divId +">");
+            String link1 = "https://google.com";
+            String link2 = "https://bing.com";
+            String target = "_blank";
+            writer.println("<a href=" + link1 + " target=" + target + "> Google </a>");
+            writer.println("<a href=" + link2 +" target=" + target + "> Bing </a>");
+            writer.println("</div>");
             String img = "Firewall/Fire.jpg";
             String alt = "Flame";
             writer.println("<img src=" + img + " alt=" + alt + ">");
