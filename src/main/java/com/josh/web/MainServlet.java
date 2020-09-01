@@ -42,6 +42,7 @@ public class MainServlet extends HttpServlet {
             String divId = "links";
             writer.println("<div id=" + divId + ">");
             writer.println("<a href=" + register + "> new user </a>");
+            writer.println("<br>");
             writer.println("<a href=" + login + "> login </a>");
             writer.println("</div>");
             writer.println("</body>");
