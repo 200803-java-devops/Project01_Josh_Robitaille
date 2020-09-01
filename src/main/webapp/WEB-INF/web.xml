@@ -6,30 +6,23 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 id="WebApp_ID" version="3.0">
 
 <servlet>
-    <servlet-name>FirewallServlet</servlet-name>
+    <servlet-name>MainServlet</servlet-name>
     <servlet-class>com.josh.web.FirewallServlet</servlet-class>
-    <init-param>
-        <param-name>name</param-name>
-        <param-value>Anonymous</param-value>
-    </init-param>
-    <!-- <load-on-startup>1</load-on-startup> -->
 </servlet>
 
 <servlet-mapping>
-    <servlet-name>FirewallServlet</servlet-name>
+    <servlet-name>MainServlet</servlet-name>
     <url-pattern>/firewall</url-pattern>
 </servlet-mapping>
 
 <filter>
-    <filter-name>FirewallFilter</filter-name>
-    <filter-class>com.josh.web.FirewallFilter</filter-class>
+    <filter-name>FilterName</filter-name>
+    <filter-class>com.josh.web.FilterName</filter-class>
 </filter>
 
 <filter-mapping>
-    <filter-name>FirewallFilter</filter-name>
+    <filter-name>FilterName</filter-name>
     <url-pattern>/*</url-pattern>
-    <servlet-name>FirewallServlet</servlet-name>
-    <dispatcher>REQUEST</dispatcher>
 </filter-mapping>
 
 </web-app>

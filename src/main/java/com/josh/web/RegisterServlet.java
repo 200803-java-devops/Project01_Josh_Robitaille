@@ -9,49 +9,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "FirewallServlet", urlPatterns = { "/firewall" })
-public class FirewallServlet extends HttpServlet {
-
+@WebServlet(name = "register", urlPatterns = "/register")
+public class RegisterServlet extends HttpServlet{
     @Override
     public void init() throws ServletException {
         super.init();
     }
 
     @Override
+    public void destroy() {
+        super.destroy();
+    }
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter writer = resp.getWriter();
+        String title = "Register";
 
-        try {
+        try{
             writer.println("<!Doctype html>");
             writer.println("<html>");
             writer.println("<head>");
             writer.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
-            writer.println("<title> Firewall </title>");
+            writer.println("<title> " + title + " </title>");
             writer.println("</head>");
             writer.println("<body>");
-            writer.println("<h2> Firewall Demo </h2>");
-            String divId = "links";
-            writer.println("<div id=" + divId +">");
-            String link1 = "https://google.com";
-            String link2 = "https://bing.com";
-            String target = "_blank";
-            writer.println("<a href=" + link1 + " target=" + target + "> Google </a>");
-            writer.println("<a href=" + link2 +" target=" + target + "> Bing </a>");
-            writer.println("</div>");
-            String img = "Firewall/Fire.jpg";
-            String alt = "Flame";
-            writer.println("<img src=" + img + " alt=" + alt + ">");
+            writer.println("<h2> Register Page </h2>");
             writer.println("</body>");
             writer.println("</html>");
-        } finally {
+        } finally{
             writer.close();
         }
-
-    }
-
-    @Override
-    public void destroy() {
-        System.out.println("Shutting down firewall servlet");
     }
 }

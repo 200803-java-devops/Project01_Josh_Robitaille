@@ -11,26 +11,29 @@ import org.apache.catalina.webresources.StandardRoot;
 
 public class Firewall {
 
-
     public static void main(String[] args) {
-        setupServlet();
-        
+        Tomcat server = new Tomcat();
+        setupServlet(server);  
+        startServer(server);      
     }
 
-    public static void setupServlet() {
+    public static void setupServlet(Tomcat server) {
         final String base = new File("./").getAbsolutePath();
-        Tomcat firewallServer = new Tomcat();
-        firewallServer.setBaseDir(new File("Firewall/target/tomcat/").getAbsolutePath());
-        firewallServer.setPort(8989);
-        firewallServer.getConnector();
-        Context context = firewallServer.addWebapp("", base);
+        
+        server.setBaseDir(new File("Firewall/target/tomcat/").getAbsolutePath());
+        server.setPort(8989);
+        server.getConnector();
+        Context context = server.addWebapp("", base);
         WebResourceRoot resources = new StandardRoot(context);
         WebResourceSet resourceSet = new DirResourceSet(resources, "/WEB-INF/classes", base, "/");
         resources.addPreResources(resourceSet);
         context.setResources(resources);
+    }
+
+    public static void startServer(Tomcat server){
         try {
-            firewallServer.start();
-            firewallServer.getServer().await();
+            server.start();
+            server.getServer().await();
         } catch (LifecycleException e) {
             System.err.println("Could not start firewall servlet");
         }
