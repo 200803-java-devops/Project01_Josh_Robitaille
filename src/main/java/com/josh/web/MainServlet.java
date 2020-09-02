@@ -43,15 +43,15 @@ public class MainServlet extends HttpServlet {
             "<a href=" + register + " style=font-size:20px> New User </a>" +
             "<br/></br>" +
             "<fieldset>" +
-            "<legend> Log in </legend>" +
+            "<legend> Login </legend>" +
             "<form name=loginForm method=post action=" + hubPage + ">" +
-            "<label> username: </label>" +
+            "<label> Username: </label>" +
             "<input type=text name =username />" +
             "<br/>" +
-            "<label> password: </label>" +
+            "<label> Password: </label>" +
             "<input type=password name=password />" +
-            "<br/>" +
-            "<input type=submit value=login />" +
+            "<br/><br/>" +
+            "<input type=submit value=Login />" +
             "</form>" +
             "</fieldset>" +
             "</div>" +

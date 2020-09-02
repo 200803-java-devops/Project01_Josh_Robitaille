@@ -38,13 +38,13 @@ public class RegisterServlet extends HttpServlet{
             "<body>" +
             "<h1> Register Page </h1>" +
             "<form name=loginForm method=post action=" + action + ">" +
-            "<label> username: </label>" +
+            "<label> Username: </label>" +
             "<input type=text name =username />" +
             "<br/>" +
-            "<label> password: </label>" +
+            "<label> Password: </label>" +
             "<input type=password name=password />" +
-            "<br/>" +
-            "<input type=submit value=create />" +
+            "<br/><br/>" +
+            "<input type=submit value=Register />" +
             "</form>" +
             "</body>" +
             "</html>";
