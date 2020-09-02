@@ -19,7 +19,33 @@ The firewall will have authentication capabilities to check credentials of the u
 - the application will monitor that the users wont click on pages too many times in one session
     - if the user goes to the same page more then (5) times during one session they will be blocked from entering again on the session
 
-## process
+## features
+[x] user register
+    [x] user creates username
+    [x] user creates password
+[x] user login
+[] filters 
+    [x] filter registered names for bad word strings
+    [x] filter login info for wrong entries
+    [x] filter that logs time and date
+    [] filter that checks how many times a user goes to a certain link
+[] documentation
+[] unit testing
+[x] logging
+[] containerization
+[] cloud hosting
+
+## tech
+[x] java
+[x] javaEE
+    [x] servlets
+    [x] filters
+[] postgresql
+[x] maven
+[] junit
+[] docker
+[] aws
+[x] git
 
 ## database
 - the username and passwords can be saved to a database
