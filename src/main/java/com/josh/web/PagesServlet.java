@@ -28,31 +28,25 @@ public class PagesServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         String title = "Hub";
         String username = req.getParameter("username");
-        String password = req.getParameter("password");
 
-        if (Firewall.users.containsKey(username) && Firewall.users.containsValue(password)) {
-            try {
-                String html = "<!Doctype html>" +
-                "<html>" +
-                "<head>" +
-                "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>" +
-                "<title> " + title + " </title>" +
-                "</head>" +
-                "<body>" +
-                "<h1> Hub Page </h1>" +
-                "<br/>" +
-                "<h3> Welcome " + username + " </h3>" +
-                "</body>" +
-                "</html>";
+        try {
+            String html = "<!Doctype html>" +
+            "<html>" +
+            "<head>" +
+            "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>" +
+            "<title> " + title + " </title>" +
+            "</head>" +
+            "<body>" +
+            "<h1> Hub Page </h1>" +
+            "<br/>" +
+            "<h3> Welcome " + username + " </h3>" +
+            "</body>" +
+            "</html>";
 
-                writer.println(html);
+            writer.println(html);
             } finally {
                 writer.close();
             }
-        } else {
-            System.out.println("Failed login");
-            resp.sendRedirect("http://localhost:8989/firewall");
-        }
 
     }
 }

@@ -23,3 +23,7 @@ The firewall will have authentication capabilities to check credentials of the u
 
 ## database
 - the username and passwords can be saved to a database
+
+## run the program
+- First run the Firewall main method
+- second go to a browser and enter "http:localhost:8989/firewall"
