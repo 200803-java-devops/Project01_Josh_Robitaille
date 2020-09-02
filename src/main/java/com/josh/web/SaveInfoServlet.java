@@ -1,6 +1,7 @@
 package com.josh.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,11 +25,28 @@ public class SaveInfoServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        PrintWriter writer = resp.getWriter();
+        String title = "Info Saved";
+        String back = "http://localhost:8989/firewall";
 
         System.out.println(username + " : " + password);
         Firewall.users.put(username, password);
         System.out.println(Firewall.users.toString());
 
-        resp.sendRedirect("http://localhost:8989/firewall");
+        String html = "<!Doctype html>" +
+        "<html>" +
+        "<head>" +
+        "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>" +
+        "<title> " + title + " </title>" +
+        "</head" +
+        "<body>" +
+        "<h2> Login Info Saved As </h2>" +
+        "<h3> Username: " + username + " </h3>" +
+        "<h3> Password: " + password + " </h3>" +
+        "<a href=" + back + "> Back To Login </a>" +
+        "</body>" +
+        "</html>";
+
+        writer.println(html);
     }
 }

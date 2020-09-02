@@ -4,10 +4,9 @@ import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.*;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.annotation.WebFilter;
 
+@WebFilter(filterName = "log", urlPatterns = "/*")
 public class FilterLog implements Filter {
 
     @Override
@@ -22,7 +21,9 @@ public class FilterLog implements Filter {
             throws IOException, ServletException {
 
         String ipAddress = request.getRemoteAddr();
-        System.out.println("IP address: " + ipAddress + ", Time: " + new Date().toString());
+        System.out.println("------------------------");
+        System.out.println(">>> IP address: " + ipAddress + " >>> Time: " + new Date().toString());
+        System.out.println("------------------------");
         chain.doFilter(request, response);
     }
 
