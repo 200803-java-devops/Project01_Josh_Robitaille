@@ -1,10 +1,11 @@
 package com.josh.web;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.*;
 
-public class FilterName implements Filter {
+public class FilterLog implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -22,6 +23,8 @@ public class FilterName implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
 
+        String ipAddress = request.getRemoteAddr();
+        System.out.println("ip: " + ipAddress + ", time: " + new Date().toString());
         chain.doFilter(request, response);
     }
 }

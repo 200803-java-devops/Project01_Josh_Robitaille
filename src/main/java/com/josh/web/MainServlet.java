@@ -27,26 +27,38 @@ public class MainServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         String title = "Main";
-        String login = "http://localhost:8989/login";
+        String hubPage = "/page-hub";
         String register = "http://localhost:8989/register";
 
         try {
-            writer.println("<!Doctype html>");
-            writer.println("<html>");
-            writer.println("<head>");
-            writer.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
-            writer.println("<title> " + title + " </title>");
-            writer.println("</head>");
-            writer.println("<body>");
-            writer.println("<h2> Main Page </h2>");
-            String divId = "links";
-            writer.println("<div id=" + divId + ">");
-            writer.println("<a href=" + register + "> new user </a>");
-            writer.println("<br>");
-            writer.println("<a href=" + login + "> login </a>");
-            writer.println("</div>");
-            writer.println("</body>");
-            writer.println("</html>");
+            String html = "<!Doctype html>" +
+            "<html>" +
+            "<head>" +
+            "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>" +
+            "<title> " + title + " </title>" +
+            "</head>" +
+            "<body>" +
+            "<h1> Main Page </h1>" +
+            "<div id=content>" +
+            "<a href=" + register + " style=font-size:20px> New User </a>" +
+            "<br/></br>" +
+            "<fieldset>" +
+            "<legend> Log in </legend>" +
+            "<form name=loginForm method=post action=" + hubPage + ">" +
+            "<label> username: </label>" +
+            "<input type=text name =username />" +
+            "<br/>" +
+            "<label> password: </label>" +
+            "<input type=password name=password />" +
+            "<br/>" +
+            "<input type=submit value=login />" +
+            "</form>" +
+            "</fieldset>" +
+            "</div>" +
+            "</body>" +
+            "</html>";
+
+            writer.println(html);
         } finally {
             writer.close();
         }

@@ -1,6 +1,8 @@
 package com.josh.web;
 
 import java.io.File;
+import java.util.Hashtable;
+
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.WebResourceRoot;
@@ -10,11 +12,13 @@ import org.apache.catalina.webresources.DirResourceSet;
 import org.apache.catalina.webresources.StandardRoot;
 
 public class Firewall {
+    static Hashtable<String, String> users = new Hashtable<>();
 
     public static void main(String[] args) {
         Tomcat server = new Tomcat();
+        addUser("user", "password");
         setupServlet(server);  
-        startServer(server);      
+        startServer(server);
     }
 
     public static void setupServlet(Tomcat server) {
@@ -37,5 +41,9 @@ public class Firewall {
         } catch (LifecycleException e) {
             System.err.println("Could not start firewall servlet");
         }
+    }
+
+    public static void addUser(String username, String password){
+        users.put(username, password);
     }
 }
