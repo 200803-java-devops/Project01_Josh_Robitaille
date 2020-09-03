@@ -36,7 +36,9 @@ public class RegisterServlet extends HttpServlet{
             "<title> " + title + " </title>" +
             "</head>" +
             "<body>" +
-            "<h1> Register Page </h1>" +
+            "<h1> Register Page </h1>" +            
+            "<fieldset>" +
+            "<legend> Register </legend>" +
             "<form name=loginForm method=post action=" + action + ">" +
             "<label> Username: </label>" +
             "<input type=text name =username />" +
@@ -46,6 +48,22 @@ public class RegisterServlet extends HttpServlet{
             "<br/><br/>" +
             "<input type=submit value=Register />" +
             "</form>" +
+            "</fieldset>" +
+            "<br/><br/>" +
+            "<fieldset>" +
+            "<legend> Rules </legend>" +
+            "<ul> " +
+            "<li> Username </li>" +
+            "<ul>" +
+            "<li> Username cannot be shorter then 3 characters </li>" +
+            "<li> Username cannot contain vulgar strings of letters </li>" +
+            "</ul>" +
+            "<li> Password </li>" +
+            "<ul>" +
+            "<li> Password cannot be shorter then 8 characters </li>" +
+            "</ul>" +
+            "</ul>" +
+            "</fieldset>" +
             "</body>" +
             "</html>";
 

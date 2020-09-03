@@ -26,7 +26,19 @@ public class FilterRegisteredName implements Filter {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        String[] notAllowed = { "butt", "crud", "fuck", "shit", "ass" };
+        String[] notAllowed = { 
+            "bitch", "Bitch", "BITCH", 
+            "fuck", "Fuck", "FUCK", 
+            "shit", "Shit", "SHIT", 
+            "ass", "Ass", "ASS",
+            "dick", "Dick", "DICK",
+            "cunt", "Cunt", "CUNT",
+            "penis", "Penis", "PENIS",
+            "cock", "Cock", "COCK",
+            "vagina", "Vagina", "VAGINA",
+            "boob", "Boob", "BOOB",
+            
+        };
 
         System.out.println("Checking name validity");
         if (username.length() >= 3 && password.length() >= 8) {
