@@ -22,8 +22,7 @@ public class Firewall {
     }
 
     public static void setupServlet(Tomcat server) {
-        final String base = new File("./").getAbsolutePath();
-        
+        final String base = new File("./").getAbsolutePath();        
         server.setBaseDir(new File("Firewall/target/tomcat/").getAbsolutePath());
         server.setPort(8989);
         server.getConnector();

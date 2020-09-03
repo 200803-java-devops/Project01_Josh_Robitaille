@@ -29,10 +29,12 @@ public class PagesServlet extends HttpServlet {
         String title = "Hub";
         String username = req.getParameter("username");
         String backLink = "http://localhost:8989/firewall";
+        String changePassword = "http://localhost:8989//page-hub/change-password?username=" + username;
         String page01 = "http://localhost:8989/page-hub/page01";
         String page02 = "http://localhost:8989/page-hub/page02";
         String page03 = "http://localhost:8989/page-hub/page03";
 
+        System.out.println(username);
         try {
             String html = "<!Doctype html>" +
             "<html>" +
@@ -51,6 +53,8 @@ public class PagesServlet extends HttpServlet {
             "<a href =" + page02 + "> Page02 </a>" +
             "<br/>" +
             "<a href =" + page03 + "> Page03 </a>" +
+            "<br/>" +
+            "<a href =" + changePassword + "> Change Password </a>" +
             "<br/>" +
             "<a href =" + backLink + "> Back </a>" +
             "</fieldset>" +

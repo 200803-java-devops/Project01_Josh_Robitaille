@@ -32,6 +32,9 @@ public class FilterAuthenticate implements Filter {
         if (Firewall.users.containsKey(username)) {
             if (Firewall.users.get(username).equals(password)) {
                 chain.doFilter(request, response);
+            } else{
+                System.out.println("Login Failed . . .");
+                resp.sendRedirect("http://localhost:8989/firewall");
             }
         } else{
             System.out.println("Login Failed . . .");

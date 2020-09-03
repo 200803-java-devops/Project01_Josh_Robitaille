@@ -25,6 +25,7 @@ public class FilterRegisteredName implements Filter {
         HttpServletResponse resp = (HttpServletResponse) response;
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        String name = req.getParameter("change");
 
         String[] notAllowed = { "bitch", "Bitch", "BITCH", 
         "fuck", "Fuck", "FUCK", 
@@ -41,25 +42,31 @@ public class FilterRegisteredName implements Filter {
         System.out.println("Checking name validity");
         boolean validUsername = false;
 
-        if (username.length() >= 3 && password.length() >= 8) {
-            for (String word : notAllowed) {
-                if (username.contains(word)) {
-                    validUsername = false;
-                    break;
-                } else {
-                    validUsername = true;
-                }
-            }
-        } else {
-            System.out.println("Not valid . . .");
-            resp.sendRedirect("http://localhost:8989/register");
-        }
-
-        if (validUsername) {
+        if(Firewall.users.containsKey(username) && name.equals("yes")){
+            System.out.println("Changing password");
+            Firewall.users.replace(username, Firewall.users.get(username), password);
             chain.doFilter(request, response);
-        } else {
-            System.out.println("Cannot use a string of letters in name . . .");
-            resp.sendRedirect("http://localhost:8989/register");
+        } else{
+            if (username.length() >= 3 && password.length() >= 8) {
+                for (String word : notAllowed) {
+                    if (username.contains(word)) {
+                        validUsername = false;
+                        break;
+                    } else {
+                        validUsername = true;
+                    }
+                }
+            } else {
+                System.out.println("Not valid . . .");
+                resp.sendRedirect("http://localhost:8989/register");
+            }
+    
+            if (validUsername) {
+                chain.doFilter(request, response);
+            } else {
+                System.out.println("Cannot use a string of letters in name . . .");
+                resp.sendRedirect("http://localhost:8989/register");
+            }
         }
 
     }

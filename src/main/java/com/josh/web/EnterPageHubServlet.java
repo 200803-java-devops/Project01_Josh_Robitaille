@@ -18,7 +18,7 @@ public class EnterPageHubServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("http://localhost:8989/page-hub");
+        resp.sendRedirect("http://localhost:8989/page-hub?username=" + req.getParameter("username"));
     }
 
     @Override
