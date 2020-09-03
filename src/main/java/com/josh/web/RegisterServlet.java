@@ -27,6 +27,7 @@ public class RegisterServlet extends HttpServlet{
         PrintWriter writer = resp.getWriter();
         String title = "Register";
         String action = "/saving-info";
+        String backLink = "http://localhost:8989/firewall";
 
         try{
             String html = "<!Doctype html>" +
@@ -64,6 +65,8 @@ public class RegisterServlet extends HttpServlet{
             "</ul>" +
             "</ul>" +
             "</fieldset>" +
+            "<br/>" +
+            "<a href =" + backLink + "> Back </a>" +
             "</body>" +
             "</html>";
 

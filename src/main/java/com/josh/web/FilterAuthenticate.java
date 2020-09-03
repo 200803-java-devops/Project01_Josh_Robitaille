@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter(filterName = "authenticate", urlPatterns = "/page-hub")
+@WebFilter(filterName = "authenticate", urlPatterns = "/enter-page-hub")
 public class FilterAuthenticate implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -26,8 +26,8 @@ public class FilterAuthenticate implements Filter {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        System.out.println("!! saved users: " + Firewall.users.toString());
-        System.out.println("!! param user pair: " + username + "=" + password);        
+        System.out.println(">>> saved users: " + Firewall.users.toString());
+        System.out.println(">>> param user pair: " + username + "=" + password);
 
         if (Firewall.users.containsKey(username)) {
             if (Firewall.users.get(username).equals(password)) {

@@ -27,7 +27,7 @@ public class MainServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         String title = "Main";
-        String hubPage = "/page-hub";
+        String hubPage = "/enter-page-hub";
         String register = "http://localhost:8989/register";
 
         try {

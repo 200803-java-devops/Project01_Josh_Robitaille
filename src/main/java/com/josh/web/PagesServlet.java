@@ -23,11 +23,15 @@ public class PagesServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         String title = "Hub";
         String username = req.getParameter("username");
+        String backLink = "http://localhost:8989/firewall";
+        String page01 = "http://localhost:8989/page-hub/page01";
+        String page02 = "http://localhost:8989/page-hub/page02";
+        String page03 = "http://localhost:8989/page-hub/page03";
 
         try {
             String html = "<!Doctype html>" +
@@ -40,13 +44,23 @@ public class PagesServlet extends HttpServlet {
             "<h1> Hub Page </h1>" +
             "<br/>" +
             "<h3> Welcome " + username + " </h3>" +
+            "<fieldset>" +
+            "<legend> Page Links </legend>" +
+            "<a href =" + page01 + "> Page01 </a>" +
+            "<br/>" +
+            "<a href =" + page02 + "> Page02 </a>" +
+            "<br/>" +
+            "<a href =" + page03 + "> Page03 </a>" +
+            "<br/>" +
+            "<a href =" + backLink + "> Back </a>" +
+            "</fieldset>" +
             "</body>" +
             "</html>";
 
             writer.println(html);
-            } finally {
-                writer.close();
-            }
+        } finally {
+            writer.close();
+        }
 
     }
 }

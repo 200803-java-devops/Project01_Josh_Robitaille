@@ -2,6 +2,7 @@ package com.josh.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Writer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,6 +34,7 @@ public class SaveInfoServlet extends HttpServlet{
         Firewall.users.put(username, password);
         System.out.println(Firewall.users.toString());
 
+        try{
         String html = "<!Doctype html>" +
         "<html>" +
         "<head>" +
@@ -48,5 +50,8 @@ public class SaveInfoServlet extends HttpServlet{
         "</html>";
 
         writer.println(html);
+        } finally{
+            writer.close();
+        }
     }
 }

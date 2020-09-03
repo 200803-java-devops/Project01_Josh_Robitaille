@@ -26,31 +26,39 @@ public class FilterRegisteredName implements Filter {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        String[] notAllowed = { 
-            "bitch", "Bitch", "BITCH", 
-            "fuck", "Fuck", "FUCK", 
-            "shit", "Shit", "SHIT", 
-            "ass", "Ass", "ASS",
-            "dick", "Dick", "DICK",
-            "cunt", "Cunt", "CUNT",
-            "penis", "Penis", "PENIS",
-            "cock", "Cock", "COCK",
-            "vagina", "Vagina", "VAGINA",
-            "boob", "Boob", "BOOB",
-            
+        String[] notAllowed = { "bitch", "Bitch", "BITCH", 
+        "fuck", "Fuck", "FUCK", 
+        "shit", "Shit", "SHIT", 
+        "ass", "Ass", "ASS", 
+        "dick", "Dick", "DICK", 
+        "cunt", "Cunt", "CUNT", 
+        "penis", "Penis", "PENIS", 
+        "cock", "Cock", "COCK", 
+        "vagina", "Vagina", "VAGINA", 
+        "boob", "Boob", "BOOB"
         };
 
         System.out.println("Checking name validity");
+        boolean validUsername = false;
+
         if (username.length() >= 3 && password.length() >= 8) {
             for (String word : notAllowed) {
                 if (username.contains(word)) {
-                    System.out.println("Cannot use a string of letters in name . . .");
-                    resp.sendRedirect("http://localhost:8989/register");
+                    validUsername = false;
+                    break;
+                } else {
+                    validUsername = true;
                 }
             }
-            chain.doFilter(request, response);
         } else {
             System.out.println("Not valid . . .");
+            resp.sendRedirect("http://localhost:8989/register");
+        }
+
+        if (validUsername) {
+            chain.doFilter(request, response);
+        } else {
+            System.out.println("Cannot use a string of letters in name . . .");
             resp.sendRedirect("http://localhost:8989/register");
         }
 
