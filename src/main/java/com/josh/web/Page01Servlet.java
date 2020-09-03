@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "page01", urlPatterns = "/page-hub/page01")
 public class Page01Servlet extends HttpServlet {
-    
+    private static final long serialVersionUID = 1L;
+
     @Override
     public void init() throws ServletException {
         

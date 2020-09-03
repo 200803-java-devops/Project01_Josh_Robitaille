@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "loginToPages", urlPatterns = "/enter-page-hub")
 public class EnterPageHubServlet extends HttpServlet {
-    
+    private static final long serialVersionUID = 1L;
+
     @Override
     public void init() throws ServletException {
         super.init();

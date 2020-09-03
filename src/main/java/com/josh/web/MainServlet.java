@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "FirewallServlet", urlPatterns = { "/firewall" })
 public class MainServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
 
     @Override
     public void init() throws ServletException {

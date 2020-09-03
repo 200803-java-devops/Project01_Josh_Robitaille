@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "changePassword", urlPatterns = "/page-hub/change-password")
 public class ChangePasswordServlet extends HttpServlet {
-    
+    private static final long serialVersionUID = 1L;
+
     @Override
     public void init() throws ServletException {
         super.init();    

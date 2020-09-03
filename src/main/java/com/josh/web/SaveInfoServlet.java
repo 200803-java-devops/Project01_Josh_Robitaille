@@ -2,7 +2,6 @@ package com.josh.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Writer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "saveInfo", urlPatterns = "/saving-info")
 public class SaveInfoServlet extends HttpServlet{
+    private static final long serialVersionUID = 1L;
+
     @Override
     public void init() throws ServletException {
         super.init();

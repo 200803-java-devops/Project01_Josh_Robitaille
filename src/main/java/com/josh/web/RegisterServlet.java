@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "register", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet{
+    private static final long serialVersionUID = 1L;
+
     @Override
     public void init() throws ServletException {
         super.init();
