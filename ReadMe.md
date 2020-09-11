@@ -36,19 +36,19 @@ The firewall will have authentication capabilities to check credentials of the u
 [] cloud hosting
 
 ## tech
-[x] java
-[x] javaEE
+[x] java 14
+[x] javaEE 9
     [x] servlets
     [x] filters
 [] postgresql
-[x] maven
-[] junit
+[x] maven 3
+[] junit 5
 [] docker
 [] aws
-[x] git
+[x] git scm
 
 ## database
-- the username and passwords can be saved to a database
+- the usernames and passwords can be saved to a database
 
 ## run the program
 - First run the Firewall main method

@@ -24,6 +24,8 @@ public class Page02Servlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         String title = "Page02";
         String backLink = "http://localhost:8989/page-hub";
+        String history = "text history here";
+        String textSubmit = "/page-hub/add-text";
 
         try{
         String html = "<!Doctype>" +
@@ -34,6 +36,17 @@ public class Page02Servlet extends HttpServlet {
             "</head>" +
             "<body>" +
             "<h1> Page02 </h1>" +
+            "<br/><br/>" +
+            "<fieldset>" +
+            "<p> " + history + " </p>" +
+            "<br/><br/>" +
+            "<form name=textAdd method=get action=" + textSubmit + ">" +
+            "<label> Text: </label>" +
+            "<input type=text name=text />" +
+            "<br/><br/>" +
+            "<input type=submit value=Text />" +
+            "</form>" +
+            "</fieldset>" +
             "<br/><br/>" +
             "<a href =" + backLink + "> Back </a>" +
             "</body>" +
